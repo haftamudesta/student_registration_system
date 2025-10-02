@@ -1,5 +1,6 @@
 import customtkinter as ctk
 from PIL import Image
+from tkinter.ttk import Treeview, Style
 
 window = ctk.CTk()
 window.title("Student Registration")
@@ -153,6 +154,79 @@ find_student_option_box = ctk.CTkComboBox(
 find_student_option_box.place(x=210, y=360)
 find_student_option_box.set("Search By")
 
+theme_configuration = {
+    "Treeview": {
+        "configure": {
+            "background": "white",
+            "fieldbackground": "white",
+            "foreground": "black",
+            "rowheight": 25,
+            "font": ('Arial', 10)
+        },
+        "map": {
+            "background": [('selected', '#347083')],
+            "foreground": [('selected', 'white')]
+        }
+    },
+    "Treeview.Heading": {
+        "configure": {
+            "background": "lightblue",
+            "foreground": "darkblue",
+            "relief": "raised",
+            "padding": (5, 2),
+            "font": ('Arial', 10, 'bold')
+        },
+        "map": {
+            "background": [
+                ('pressed', 'darkblue'),
+                ('active', '#a6d4f2')
+            ],
+            "foreground": [
+                ('pressed', 'white'),
+                ('active', 'darkred')
+            ]
+        }
+    },
+    "TButton": {
+        "configure": {
+            "background": "lightgreen",
+            "foreground": "darkgreen",
+            "padding": (10, 5)
+        },
+        "map": {
+            "background": [
+                ('pressed', 'darkgreen'),
+                ('active', '#90EE90'),
+                ('disabled', 'lightgray')
+            ],
+            "foreground": [
+                ('pressed', 'white'),
+                ('active', 'black'),
+                ('disabled', 'gray')
+            ]
+        }
+    }
+}
+
+style = Style()
+style.theme_create(themename="custom", parent="clam",
+                   settings=theme_configuration)
+style.theme_use(themename="custom")
+
+
+records_table = Treeview(master=main_frame, columns=(
+    "ID", "Name", "Age", "Gender", "Class"), show="headings")
+records_table.column(column="ID", width=80, anchor="w")
+records_table.heading(column="ID", text="Id Number", anchor="w")
+records_table.column(column="Name", width=120, anchor="w")
+records_table.heading(column="Name", text="Full Nmae", anchor="w")
+records_table.column(column="Age", width=60, anchor="w")
+records_table.heading(column="Age", text="Age", anchor="w")
+records_table.column(column="Gender", width=80, anchor="w")
+records_table.heading(column="Gender", text="Gender", anchor="w")
+records_table.column(column="Class", width=80, anchor="w")
+records_table.heading(column="Class", text="Class", anchor="w")
+records_table.place(x=25, y=400, width=500, height=100)
 main_frame.place(x=25, y=5)
 window.resizable(width=False, height=False)
 window.mainloop()
