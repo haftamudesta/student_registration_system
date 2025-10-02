@@ -103,6 +103,7 @@ select_student_class_box = ctk.CTkComboBox(
     fg_color="#2b2b2b",
     border_color="#0078d7",
     border_width=2,
+    text_color="white",
     button_color="#0078d7",
     button_hover_color="#005a9e",
     dropdown_fg_color="#2b2b2b",
@@ -112,6 +113,45 @@ select_student_class_box = ctk.CTkComboBox(
 select_student_class_box.place(x=200, y=260)
 select_student_class_box.set("Select Class")
 
+register_btn = ctk.CTkButton(
+    master=main_frame, fg_color="#09a511", text_color="White", font=("Arial", 15, "bold"), text="Register", width=100)
+register_btn.place(x=25, y=320)
+
+update_btn = ctk.CTkButton(
+    master=main_frame, fg_color="#bed116", text_color="White", font=("Arial", 15, "bold"), text="Update", width=100)
+update_btn.place(x=160, y=320)
+
+
+clear_btn = ctk.CTkButton(
+    master=main_frame, fg_color="#d1162f", text_color="White", font=("Arial", 15, "bold"), text="Clear", width=100)
+clear_btn.place(x=280, y=320)
+
+find_student_entry = ctk.CTkEntry(
+    master=main_frame, font=("Bold", 15), width=180, placeholder_text="Search Student:")
+find_student_entry.place(x=25, y=360)
+
+find_student_options = ["Id", "Name", "Class"]
+
+find_student_option_box = ctk.CTkComboBox(
+    master=main_frame,
+    values=find_student_options,
+    state="readonly",
+    width=200,
+    height=35,
+    font=("Arial", 14),
+    dropdown_font=("Arial", 14),
+    fg_color="#2b2b2b",
+    border_color="#0078d7",
+    border_width=2,
+    text_color="white",
+    button_color="#0078d7",
+    button_hover_color="#005a9e",
+    dropdown_fg_color="#413e3e",
+    dropdown_text_color="white",
+    dropdown_hover_color="#0078d7"
+)
+find_student_option_box.place(x=210, y=360)
+find_student_option_box.set("Search By")
 
 main_frame.place(x=25, y=5)
 window.resizable(width=False, height=False)
