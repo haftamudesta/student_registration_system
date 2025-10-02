@@ -38,7 +38,7 @@ add_picture_button.place(x=5, y=5)
 add_custom_btn_frame.place(x=400, y=80)
 
 student_id_number_entry = ctk.CTkEntry(
-    master=main_frame, font=("Bold", 15), width=280, placeholder_text="Enter Student Number Id")
+    master=main_frame, font=("Bold", 15), width=280, placeholder_text="Enter Student Id Number")
 student_id_number_entry.place(x=25, y=80)
 
 student_full_name_entry = ctk.CTkEntry(
@@ -227,6 +227,13 @@ records_table.heading(column="Gender", text="Gender", anchor="w")
 records_table.column(column="Class", width=80, anchor="w")
 records_table.heading(column="Class", text="Class", anchor="w")
 records_table.place(x=25, y=400, width=500, height=100)
+clear_selection_btn = ctk.CTkButton(
+    master=main_frame, text="Clear Selection", fg_color="#ff7f27", text_color="black", font=("Bold", 20), width=100)
+clear_selection_btn.place(x=50, y=510)
+
+delete_record_btn = ctk.CTkButton(
+    master=main_frame, text="Delete Record", fg_color="#f50505", text_color="black", font=("Bold", 20), width=100)
+delete_record_btn.place(x=240, y=510)
 main_frame.place(x=25, y=5)
 window.resizable(width=False, height=False)
 window.mainloop()
