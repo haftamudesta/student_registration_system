@@ -38,7 +38,7 @@ add_custom_btn_frame = ctk.CTkFrame(
 )
 profile_image = ctk.CTkImage(Image.open("images/profile.jpg"), size=(80, 80))
 add_picture_button = ctk.CTkButton(
-    master=add_custom_btn_frame, text="", image=profile_image, width=0, height=0, fg_color="transparent")
+    master=add_custom_btn_frame, text="", image=profile_image, width=0, height=0, fg_color="transparent", command=ask_open_profile_picture)
 
 add_picture_button.place(x=5, y=5)
 add_custom_btn_frame.place(x=400, y=80)
