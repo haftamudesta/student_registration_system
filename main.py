@@ -1,10 +1,16 @@
 import customtkinter as ctk
 from PIL import Image
 from tkinter.ttk import Treeview, Style
+from tkinter.filedialog import askopenfile
 
 window = ctk.CTk()
 window.title("Student Registration")
 window.geometry("600x600")
+
+
+def ask_open_profile_picture():
+    ask_open_file = askopenfile()
+
 
 main_frame = ctk.CTkFrame(
     master=window,
