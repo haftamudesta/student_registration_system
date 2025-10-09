@@ -2,6 +2,7 @@ import customtkinter as ctk
 from PIL import Image
 from tkinter.ttk import Treeview, Style
 from tkinter.filedialog import askopenfile
+from tkinter.filedialog import askopenfilename
 
 window = ctk.CTk()
 window.title("Student Registration")
@@ -9,8 +10,34 @@ window.geometry("600x600")
 
 
 def ask_open_profile_picture():
-    ask_open_file = askopenfile()
-
+    file_types = [
+        ("Image files", "*.png *.jpg *.jpeg *.gif *.bmp *.tiff"),
+        ("All files", "*.*")
+    ]
+    
+    file_path = askopenfilename(
+        title="Select Profile Picture",
+        filetypes=file_types
+    )
+    if file_path:
+        try:
+            original_image = Image.open(file_path)
+            
+            original_image.thumbnail((80, 80), Image.Resampling.LANCZOS)
+            
+            profile_picture_image_obj = ctk.CTkImage(
+                light_image=original_image,
+                dark_image=original_image,
+                size=(80, 80)
+            )
+            add_picture_button.configure(
+                image=profile_picture_image_obj,
+            )
+            add_picture_button.image = profile_picture_image_obj
+            add_picture_button.profile_picture_path = file_path
+            
+        except Exception as e:
+            print(f"Error loading image: {e}")
 
 main_frame = ctk.CTkFrame(
     master=window,
